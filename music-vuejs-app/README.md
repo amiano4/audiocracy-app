@@ -1,5 +1,68 @@
-# Vue 3 + TypeScript + Vite
+# 📀 Audiocracy - Vue.js Frontend
 
-This template should help get you started developing with Vue 3 and TypeScript in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+This repository contains the frontend, built with Vue.js and Vite.
 
-Learn more about the recommended Project Setup and IDE Support in the [Vue Docs TypeScript Guide](https://vuejs.org/guide/typescript/overview.html#project-setup).
+## 🚀 Features
+
+- User authentication (Register & Login)
+- Album listing with upvote/downvote functionality
+- Search and sort albums
+- Pagination or lazy loading for performance
+- Admin role for album management
+
+---
+
+## 📌 Installation & Setup
+
+### **1️⃣ Prerequisites**
+
+Ensure you have the following installed:
+
+- **Node.js**
+- **npm**
+
+### **2️⃣ Install Dependencies**
+
+```sh
+cd music-vuejs-app
+npm install
+```
+
+### **3️⃣ Configure Environment Variables**
+
+Create a `.env` file in the root directory and add:
+
+```env
+VITE_API_HOST=http://localhost:8000
+```
+
+Adjust the `VITE_API_HOST` to match your backend API URL.
+
+### **4️⃣ Run the Development Server**
+
+```sh
+npm run dev
+```
+
+Then open **http://localhost:5173/** in your browser.
+
+---
+
+## 📁 Project Structure
+
+```
+📦 music-vuejs-app
+├── 📂 src
+│   ├── 📂 assets          # Static assets (CSS, images, etc.)
+│   ├── 📂 components      # Reusable Vue components
+│   ├── 📂 composables     # Vue 3 composables (state & logic reusability)
+│   ├── 📂 router          # Vue Router configuration
+│   ├── 📂 views           # Page-level components
+│   ├── App.vue           # Root Vue component
+│   ├── main.ts           # Entry point
+│   ├── axios.ts          # Axios instance configuration
+├── .env                  # Environment variables
+├── .env-template         # env file template
+├── vite.config.ts         # Vite configuration
+└── package.json          # Project dependencies & scripts
+```
