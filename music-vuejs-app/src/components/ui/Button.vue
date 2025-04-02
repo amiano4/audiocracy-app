@@ -1,10 +1,5 @@
 <template>
-  <button
-    v-bind="$attrs"
-    :class="['btn', buttonType, size, disabled ? 'disabled' : '']"
-    :disabled="disabled"
-    @click="handleClick"
-  >
+  <button v-bind="$attrs" :class="['btn', buttonType, size, disabled ? 'disabled' : '']" :disabled="disabled">
     <slot>{{ label }}</slot>
   </button>
 </template>
@@ -34,15 +29,6 @@ const props = defineProps({
 
 // Computed property for button type
 const buttonType = computed(() => `btn-${props.color}`);
-
-// Method to handle button click
-const handleClick = () => {
-  if (props.disabled) return; // Prevent click if disabled
-  emit("click");
-};
-
-// Emit function for event
-const emit = defineEmits();
 </script>
 
 <style scoped>
