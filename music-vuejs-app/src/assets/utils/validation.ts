@@ -27,25 +27,26 @@ export const handleSubmit = (callback: (event?: Event) => void) => {
     const form = event.target as HTMLFormElement;
     form.setAttribute("data-submitted", "");
 
-    setTimeout(() => {
-      // trigger input events
-      form.querySelectorAll("[data-form-control=active]").forEach((el) => {
-        if (el instanceof HTMLInputElement || el instanceof HTMLTextAreaElement) {
-          // Trigger 'input' event for text inputs and textareas
-          el.dispatchEvent(new Event("input"));
-        } else if (
-          el instanceof HTMLSelectElement ||
-          (el instanceof HTMLInputElement && (el.type === "checkbox" || el.type === "radio"))
-        ) {
-          // Trigger 'change' event for select/checkbox/radio elements
-          el.dispatchEvent(new Event("change"));
-        }
-      });
-    }, 100);
+    // trigger input events
+    form.querySelectorAll("[data-form-control=active]").forEach((el) => {
+      if (el instanceof HTMLInputElement || el instanceof HTMLTextAreaElement) {
+        // Trigger 'input' event for text inputs and textareas
+        el.dispatchEvent(new Event("input"));
+      } else if (
+        el instanceof HTMLSelectElement ||
+        (el instanceof HTMLInputElement && (el.type === "checkbox" || el.type === "radio"))
+      ) {
+        // Trigger 'change' event for select/checkbox/radio elements
+        el.dispatchEvent(new Event("change"));
+      }
+    });
 
-    if (!form.querySelectorAll("[data-form-control=error]")?.length) {
-      callback(event);
-    }
+    setTimeout(() => {
+      if (!form.querySelectorAll("[data-form-control=error]")?.length) {
+        // invoke callback function if no error
+        callback(event);
+      }
+    }, 100);
   };
 };
 
