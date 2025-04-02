@@ -115,6 +115,7 @@ watch(() => props.rules, evalErrors, { deep: true });
 }
 .form-error {
   color: #ef4444;
-  font-size: 0.8rem;
+  font-size: 0.7rem;
+  font-weight: 600;
 }
 </style>
