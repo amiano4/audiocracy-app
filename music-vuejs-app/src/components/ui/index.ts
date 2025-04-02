@@ -1,6 +1,7 @@
 import Input from "./Input.vue";
-import Button from "./Button.vue";
 
 export { Input };
 export { Input as FormControl };
-export { Button };
+
+export { default as Button } from "./Button.vue";
+export { default as AlertContainer } from "./AlertContainer.vue";
