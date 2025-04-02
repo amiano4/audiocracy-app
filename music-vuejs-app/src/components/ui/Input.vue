@@ -6,14 +6,13 @@
       v-bind="$attrs"
       :type="type"
       :value="modelValue"
-      class="form-input"
-      :class="{ 'border-red-500': errorMessage }"
+      :class="['form-input', { 'border-red-500': errorMessage }]"
       @input="updateValue"
       :placeholder="placeholder"
       :data-form-control="formControlType"
       ref="inputRef"
     />
-    <p v-if="errorMessage" class="form-error m-0">{{ errorMessage }}</p>
+    <p v-if="errorMessage || customError" class="form-error m-0">{{ errorMessage || customError }}</p>
   </div>
 </template>
 
@@ -28,6 +27,7 @@ interface Props {
   id?: string;
   rules?: Record<string, any> | null;
   placeholder?: string;
+  customError?: string | null;
 }
 
 // Define props with default values
