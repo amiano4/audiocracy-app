@@ -20,8 +20,10 @@
 import { computed, ref, watch } from "vue";
 import { ValidationRules } from "@/assets/utils/validation";
 
+type InputValue = string | number;
+
 interface Props {
-  modelValue: string | number;
+  modelValue: InputValue;
   label?: string;
   type?: string;
   id?: string;
@@ -41,12 +43,15 @@ const props = withDefaults(defineProps<Props>(), {
 // Define emit event
 const emit = defineEmits(["update:modelValue"]);
 
-const model = ref(props.modelValue);
-const inputRef = ref(null);
-const errorMessage = ref(null);
+const model = ref<InputValue>(props.modelValue);
+const inputRef = ref<any>(null);
+const errorMessage = ref<string | null>(null);
 
 const isSubmitted = () => {
-  return (inputRef.value as HTMLElement)?.closest("form[data-submitted]") != null;
+  if (inputRef.value instanceof HTMLElement) {
+  }
+
+  return inputRef.value.closest("form[data-submitted]") != null;
 };
 
 const evalErrors = () => {
@@ -77,7 +82,7 @@ const updateValue = (event: Event) => {
   setTimeout(evalErrors, 100);
 };
 
-const formControlType = computed(() => {
+const formControlType = computed((): "error" | "active" | "idle" => {
   return errorMessage.value !== null ? "error" : props.rules !== null ? "active" : "idle";
 });
 
