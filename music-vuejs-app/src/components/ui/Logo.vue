@@ -4,7 +4,7 @@
       :src="src"
       :style="{
         width: size,
-        heigth: size,
+        height: size,
       }"
     />
   </div>
