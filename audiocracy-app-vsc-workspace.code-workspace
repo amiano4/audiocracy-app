@@ -1,0 +1,23 @@
+{
+  "folders": [
+    {
+      "path": "laravel-backend"
+    },
+    {
+      "path": "music-vuejs-app"
+    }
+  ],
+  "settings": {
+    "[php]": {
+      "editor.defaultFormatter": "bmewburn.vscode-intelephense-client"
+    },
+    "[javascript]": {
+      "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.fontSize": 12,
+    "editor.fontFamily": "Fira Code",
+    "editor.fontLigatures": true,
+    "editor.formatOnSave": true
+  }
+}
