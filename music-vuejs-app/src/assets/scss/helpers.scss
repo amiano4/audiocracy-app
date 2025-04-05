@@ -13,6 +13,10 @@
   .gap-1 {
     gap: 1rem;
   }
+
+  &.items-center {
+    align-items: center;
+  }
 }
 
 .full-container {
