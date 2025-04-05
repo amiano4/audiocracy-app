@@ -1,7 +1,10 @@
 <template>
   <section class="flex column center full-height">
-    <h4>Create new account</h4>
-    <form class="flex column gap-1" @submit.prevent="submit" novalidate>
+    <div class="flex column">
+      <Brand />
+      <p class="text-dark">Create new account</p>
+    </div>
+    <form class="flex full-width column gap-1" @submit.prevent="submit" novalidate>
       <form-control label="Name" v-model="user.name" placeholder="Enter full name" :rules="{ required: true }" />
       <form-control
         label="Email Address"
@@ -41,8 +44,8 @@
 </template>
 
 <script lang="ts" setup>
-import { FormControl, Button } from "@/components/ui";
-import IUserRegistration from "@/composables/interfaces/IUser.ts";
+import { FormControl, Button, Brand } from "@/components/ui";
+import type { IUserRegistration } from "@/composables/interfaces/IUser";
 import { reactive, ref } from "vue";
 import { handleSubmit } from "@/assets/utils/validation";
 import { api } from "@/axios";
@@ -75,7 +78,7 @@ const submit = handleSubmit(() => {
 
   api
     .post("sign-up", user)
-    .then(({ data }) => {
+    .then(() => {
       alertStore.addAlert({
         message: "🎉 Registration successful!",
         type: "success",
