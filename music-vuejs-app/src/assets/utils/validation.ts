@@ -50,4 +50,4 @@ export const handleSubmit = (callback: (event?: Event) => void) => {
   };
 };
 
-export const ValidationRules = { required, email, equals, max, min };
+export const ValidationRules: any = { required, email, equals, max, min };
